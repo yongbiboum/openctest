@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bpmn:definitions targetNamespace="http://www.omg.org/spec/BPMN/20100524/MODEL" expressionLanguage="http://www.w3.org/1999/XPath" typeLanguage="http://www.w3.org/2001/XMLSchema" exporter="jBPMN NB" exporterVersion="0.3" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:java="http://jcp.org/en/jsr/detail?id=270" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:jbpmn="http://jbpmn.java.net" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <bpmn:itemDefinition structureRef="testEmail.Email" isCollection="false" itemKind="Information" id="testEmail.Email"/>
+    <bpmn:message name="EmailMessage" itemRef="testEmail.Email" id="_153449965528913"/>
+    <bpmn:interface name="testEmail.EmailService" implementationRef="testEmail.Email" id="_153449954884511">
+        <bpmn:operation name="verify" id="_153449950422710">
+            <bpmn:inMessageRef>_153449965528913</bpmn:inMessageRef>
+            <bpmn:outMessageRef>_153449965528913</bpmn:outMessageRef>
+        </bpmn:operation>
+        <bpmn:operation name="verify" id="_153449950422710">
+            <bpmn:inMessageRef>_153449965528913</bpmn:inMessageRef>
+            <bpmn:outMessageRef>_153449965528913</bpmn:outMessageRef>
+        </bpmn:operation>
+    </bpmn:interface>
+    <bpmn:process isClosed="false" name="ServiceTache" id="ServiceTache_PID">
+        <bpmn:property name="email" itemSubjectRef="testEmail.Email" id="email"/>
+        <bpmn:startEvent isInterrupting="true" parallelMultiple="false" id="_1534499384633">
+            <bpmn:extensionElements>
+                <jbpmn:ShapeDesign>{"outer":{"background":{"startColor":"RGB(255,255,255)","endColor":"RGB(226,232,236)"},"border":{"color":"RGB(108,142,183)","width":1.0}},"inner":{"background":{"startColor":"RGB(255,255,255)","endColor":"RGB(255,248,159)"},"border":{"color":"RGB(30,69,123)","width":1.0}}}</jbpmn:ShapeDesign>
+            </bpmn:extensionElements>
+            <bpmn:outgoing>_1534499413408</bpmn:outgoing>
+        </bpmn:startEvent>
+        <bpmn:serviceTask implementation="Other" operationRef="_153449950422710" isForCompensation="false" startQuantity="1" completionQuantity="1" name="Service Tache" id="_1534499394118">
+            <bpmn:extensionElements>
+                <jbpmn:ShapeDesign>{"outer":{"background":{"startColor":"RGB(255,255,255)","endColor":"RGB(226,232,236)"},"border":{"color":"RGB(108,142,183)","width":2.5}},"inner":{"background":{"startColor":"RGB(255,255,255)","endColor":"RGB(255,248,159)"},"border":{"color":"RGB(30,69,123)","width":1.0}}}</jbpmn:ShapeDesign>
+            </bpmn:extensionElements>
+            <bpmn:incoming>_1534499413408</bpmn:incoming>
+            <bpmn:outgoing>_1534499410528</bpmn:outgoing>
+            <bpmn:ioSpecification id="_153492300229312">
+                <bpmn:dataInput name="Parameter" itemSubjectRef="testEmail.Email" isCollection="false" id="_153492308279414"/>
+                <bpmn:dataOutput name="Result" itemSubjectRef="testEmail.Email" isCollection="false" id="_153492312635017"/>
+                <bpmn:inputSet id="_15353783142196">
+                    <bpmn:dataInputRefs>_153492308279414</bpmn:dataInputRefs>
+                </bpmn:inputSet>
+                <bpmn:outputSet id="_153493678730927">
+                    <bpmn:dataOutputRefs>_153492312635017</bpmn:dataOutputRefs>
+                </bpmn:outputSet>
+            </bpmn:ioSpecification>
+            <bpmn:dataInputAssociation id="_153492308279413">
+                <bpmn:sourceRef>email</bpmn:sourceRef>
+                <bpmn:targetRef>_153492308279414</bpmn:targetRef>
+            </bpmn:dataInputAssociation>
+            <bpmn:dataOutputAssociation id="_153492312635016">
+                <bpmn:sourceRef>_153492312635017</bpmn:sourceRef>
+                <bpmn:targetRef>email</bpmn:targetRef>
+            </bpmn:dataOutputAssociation>
+        </bpmn:serviceTask>
+        <bpmn:endEvent id="_1534499404947">
+            <bpmn:extensionElements>
+                <jbpmn:ShapeDesign>{"outer":{"background":{"startColor":"RGB(255,255,255)","endColor":"RGB(226,232,236)"},"border":{"color":"RGB(108,142,183)","width":3.0}},"inner":{"background":{"startColor":"RGB(30,69,123)","endColor":"RGB(30,69,123)"},"border":{"color":"RGB(30,69,123)","width":1.4}}}</jbpmn:ShapeDesign>
+            </bpmn:extensionElements>
+            <bpmn:incoming>_1534499410528</bpmn:incoming>
+        </bpmn:endEvent>
+        <bpmn:sequenceFlow sourceRef="_1534499394118" targetRef="_1534499404947" id="_1534499410528"/>
+        <bpmn:sequenceFlow sourceRef="_1534499384633" targetRef="_1534499394118" id="_1534499413408"/>
+    </bpmn:process>
+    <bpmndi:BPMNDiagram id="_15353782830294">
+        <bpmndi:BPMNPlane id="_15353782830295">
+            <bpmndi:BPMNShape bpmnElement="_1534499384633" id="_1534499384633_gui">
+                <omgdc:Bounds x="33.0" y="141.0" width="42.0" height="42.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="_1534499394118" id="_1534499394118_gui">
+                <omgdc:Bounds x="138.0" y="130.0" width="80.0" height="64.0"/>
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds x="136.0" y="199.0" width="84.0" height="15.0"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="_1534499404947" id="_1534499404947_gui">
+                <omgdc:Bounds x="323.0" y="141.0" width="42.0" height="42.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge bpmnElement="_1534499410528" id="_1534499410528_gui">
+                <omgdi:waypoint x="216.0" y="161.0"/>
+                <omgdi:waypoint x="323.0" y="161.0"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="_1534499413408" id="_1534499413408_gui">
+                <omgdi:waypoint x="75.0" y="162.0"/>
+                <omgdi:waypoint x="139.0" y="162.0"/>
+            </bpmndi:BPMNEdge>
+        </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+</bpmn:definitions>
